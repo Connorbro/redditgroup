@@ -1,47 +1,60 @@
 import React from 'react';
-// import logo from './logo.svg';
+import './App.css'
+import Icon from './reddit1.png'
 
-import first from './images/1.jpg';
-import second from './images/2.jpg';
-import third from './images/3.jpg';
-import fourth from './images/4.jpg';
-import fifth from './images/5.jpg';
-import sixth from './images/6.jpg';
-import Card from './Card';
-import './App.css';
-
-class App extends React.Component{
-  render(){
-    return(
-      <div className ="App">
+const search2 = (props) => {
+    return (
         <div>
-      <h3>Footballer news</h3>
-      <div>
-      <Card pic= {first} text ="Best player in the world"
-      topic= "UNITED"
-      />
-      <Card pic ={second} text="Biggest football club in the world"
-      topic="LEO MESSI"
-      />
-      <Card pic= {third} text="Best welsh player"
-      topic="GB11"
-      />
-      </div>
-  </div>
-  <div>
-  <h3>Other news</h3>
-  <Card pic ={fourth} text="Matilda is one of the best films ever"
-  topic="Matilda"/>
-  <Card pic ={fifth} text="The worlds nicest flower"
-  topic="Flower"/>
-  <Card pic ={sixth} text="Ainsley is so funny"
-  topic="mrharriot"/>
-  </div>
-</div>
-
-        
+            
+        </div>
     )
-  }
 }
-
+class App extends React.Component {
+    state = {
+        search: [          
+        ],
+        showPersons: false,
+        text:""
+    }
+    switchNameHandler = (newName) => {
+        this.setState(
+            {
+                
+            }
+        )
+    }
+    switchNameHandler=(newSearch)=>{
+        this.setState(
+            {
+                search:[
+                    ...this.state.search1,
+                    
+                ]
+            }
+        )
+    }
+    togglePersonsHandler = () => {
+        let show = this.state.showSearch;
+        this.setState({showSearch: !show})
+        //console.log(show)
+    }
+    render(){
+        
+        let searchesDetail = (
+            <div>
+             </div>
+         )
+        const searcheDetail= this.state.search.map((search1, i)=>{
+            return<search2 key={i} name={search1.name}/>
+        })
+        return(
+            <div className= "iconface">
+                <img src={Icon} />
+                <input type="text" onChange={(e) => {this.switchInput(e)}} />
+                
+                {this.state.showSearch ? <div>{searchesDetail}</div> : null}
+            </div>
+        )
+    } 
+}
 export default App;
