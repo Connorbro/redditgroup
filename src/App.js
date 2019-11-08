@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css'
 import Icon from './reddit1.png'
+import Nav from './components/Nav'
 
 const search2 = (props) => {
     return (
         <div>
-            
+        <Nav/>
         </div>
     )
 }
